@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G DOG — Play. Browse. Explore.</title>
+<style>
+:root{--bg:#050b1b;--panel:#0b1731;--blue:#168cff;--cyan:#22c7ff;--text:#f4f8ff;--muted:#a8b8d6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#123d82 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:15px 5%;background:#050b1bee;border-bottom:1px solid #174b91;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:950;font-size:1.6rem}.dog{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,#167cff,#19c8ff);font-size:25px}.brand em{font-style:normal;color:#279cff}nav{display:flex;gap:22px}nav a{color:#dceaff;text-decoration:none;font-weight:700}nav a:hover{color:var(--cyan)}
+.wrap{width:min(1100px,92%);margin:auto}.hero{text-align:center;padding:70px 15px 45px}.eyebrow{color:#56c5ff;font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:.78rem}.hero h1{font-size:clamp(3.5rem,10vw,6.5rem);line-height:.95;margin:16px 0;background:linear-gradient(100deg,#fff 20%,#39a7ff 60%,#2be0ff);-webkit-background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:1.1rem;max-width:620px;margin:20px auto 28px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:13px 19px;background:linear-gradient(110deg,#0878ff,#16baff);color:white;font-weight:850;cursor:pointer;text-decoration:none}.btn.secondary{background:#10264a;border:1px solid #2864a9}.btn:hover{filter:brightness(1.13)}
+section{padding:34px 0 50px}.section-head{margin-bottom:22px}.section-head h2{font-size:2rem;margin:5px 0}.section-head p{color:var(--muted);margin:7px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:linear-gradient(145deg,#10254a,#09152c);border:1px solid #1b477e;border-radius:18px;padding:20px}.art{height:110px;border-radius:12px;display:grid;place-items:center;font-size:3rem;background:radial-gradient(circle at 50% 30%,#1c6bc1,#0a1b3a 70%);margin-bottom:14px}.card h3{margin:0 0 7px}.card p{color:var(--muted);font-size:.93rem;min-height:42px}.card button{width:100%}
+#player{display:none;background:#071329;border:1px solid #2869ae;border-radius:17px;padding:14px;margin-top:22px}#player.active{display:block}.player-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.player-top h3{margin:0}.player-actions{display:flex;gap:8px;flex-wrap:wrap}.game-frame{width:100%;height:min(65vh,560px);border:1px solid #24558d;border-radius:12px;background:#020713}.note{color:#91a8ca;font-size:.82rem;margin:10px 2px 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:18px;border:1px solid #193f70;border-radius:15px;background:#0a1730}.feature b{display:block;margin-bottom:7px}.feature span{color:var(--muted);font-size:.92rem}
+footer{text-align:center;color:#8ea4c8;border-top:1px solid #183b68;padding:26px 12px}
+@media(max-width:720px){header{flex-wrap:wrap;gap:12px}nav{gap:14px;font-size:.9rem}.grid,.features{grid-template-columns:1fr}.hero{padding-top:48px}.player-top{align-items:flex-start;flex-direction:column}}
+</style></head>
+<body>
+<header><div class="brand"><span class="dog">🐶</span><span>G <em>DOG</em></span></div><nav><a href="#home">Home</a><a href="#games">Games</a><a href="#about">About</a></nav></header>
+<main class="wrap">
+<section class="hero" id="home"><div class="eyebrow">A GameLogs project</div><h1>G DOG</h1><p>Your spot to play, browse, and explore. Jump into the Game Zone and discover games made for the web.</p><div class="actions"><a class="btn" href="#games">🎮 Explore Games</a><a class="btn secondary" href="#about">About G DOG</a></div></section>
+<section id="games"><div class="section-head"><div class="eyebrow">The game zone</div><h2>Pick a game.</h2><p>Choose a title to launch it right here in G DOG.</p></div>
+<div class="grid">
+<article class="card"><div class="art">🟦</div><h3>Neon Tap</h3><p>A quick reflex challenge. Tap the glowing target and build your score.</p><button class="btn" onclick="launchNeon()">Play Now</button></article>
+<article class="card"><div class="art">🏎️</div><h3>Neon Drift</h3><p>A racing-game slot ready for an authorized game file.</p><button class="btn secondary" onclick="notice('Neon Drift will be added when its game file is ready.')">Coming Soon</button></article>
+<article class="card"><div class="art">⚽</div><h3>World Soccer Cup</h3><p>A GameLogs original planned for the G DOG game library.</p><button class="btn secondary" onclick="notice('World Soccer Cup can be connected once its game file is added.')">Coming Soon</button></article>
+</div>
+<div id="player"><div class="player-top"><h3>Now Playing: Neon Tap</h3><div class="player-actions"><button class="btn secondary" onclick="full()">⛶ Fullscreen</button><button class="btn secondary" onclick="closeGame()">✕ Close Game</button></div></div><iframe id="frame" class="game-frame" title="G DOG game player" allow="fullscreen; gamepad" sandbox="allow-scripts allow-same-origin allow-pointer-lock" src="about:blank"></iframe><div class="note">Press Fullscreen to expand the game, or Esc to return. Only games you own or are permitted to embed should be added.</div></div>
+</section>
+<section id="about"><div class="section-head"><div class="eyebrow">About the project</div><h2>Play. Browse. Explore.</h2><p>G DOG is a standalone GameLogs project with a growing collection of browser games.</p></div><div class="features"><div class="feature"><b>🎮 Game Zone</b><span>Launch supported games without leaving the G DOG page.</span></div><div class="feature"><b>📱 Made for screens</b><span>A responsive layout for computers, tablets, and phones.</span></div><div class="feature"><b>🐶 GameLogs spirit</b><span>A fun home for web experiences and original creations.</span></div></div></section>
+</main><footer>G DOG · A GameLogs Project · Play. Browse. Explore.</footer>
+<script>
+const frame=document.getElementById('frame'),player=document.getElementById('player');
+function launchNeon(){
+const gameDoc='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle,#142d62,#030817 70%);color:white;font-family:system-ui;display:grid;place-items:center;min-height:100vh;text-align:center}.box{padding:24px}.target{width:125px;height:125px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#38caff 25%,#087bff 70%);box-shadow:0 0 35px #168cff;cursor:pointer;margin:25px}h1{font-size:2.3rem;margin:0}.muted{color:#adc6ef}#score{font-size:1.3rem}</style></head><body><div class="box"><p class="muted">G DOG ARCADE</p><h1>NEON TAP</h1><p>Tap the glowing orb as many times as you can!</p><div id="score">Score: 0</div><button class="target" id="tap" aria-label="Tap target"></button><p class="muted">A tiny G DOG starter game</p></div><script>let s=0;document.getElementById("tap").onclick=()=>{s++;document.getElementById("score").textContent="Score: "+s};<\/script></body></html>';
+frame.srcdoc=gameDoc;player.classList.add('active');player.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeGame(){frame.src='about:blank';player.classList.remove('active')}
+function full(){if(frame.requestFullscreen)frame.requestFullscreen();else if(frame.webkitRequestFullscreen)frame.webkitRequestFullscreen()}
+function notice(s){alert(s)}
+</script></body></html>
