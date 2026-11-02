@@ -4,6 +4,58 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>G DOG — Play. Browse. Explore.</title>
 <style>
+  /* G DOG BROWSER LAUNCHER */
+.browse-box {
+  background: linear-gradient(145deg,#10254a,#09152c);
+  border: 1px solid #1b477e;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.url-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.url-input {
+  flex: 1;
+  min-width: 190px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #2864a9;
+  background: #050d20;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.url-input:focus {
+  border-color: #22c7ff;
+  box-shadow: 0 0 12px #168cff55;
+}
+
+.quick-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.quick-links button {
+  background: #10264a;
+  color: white;
+  border: 1px solid #2864a9;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.browse-status {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 12px;
+}
 :root{--bg:#050b1b;--panel:#0b1731;--blue:#168cff;--cyan:#22c7ff;--text:#f4f8ff;--muted:#a8b8d6}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#123d82 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
 header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:15px 5%;background:#050b1bee;border-bottom:1px solid #174b91;backdrop-filter:blur(12px)}
